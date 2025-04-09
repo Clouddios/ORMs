@@ -1,28 +1,21 @@
-import react,{useEffect} from "react";
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
-import styles from "../assets/css";
-
+import React from "react";
+import { View, Text, Image, TouchableOpacity } from "react-native";
+import css from "../assets/css";
+ 
 export default function Home({navigation}) {
-    useEffect(() => {
-        navigation.setOptions({
-            headerShown: false
-        })
-    }, [])
-    
     return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <Image style={styles.header_img} source={require('../assets/icon.png')} />
+        <View style={css.container}>
+            <View style={css.header}>
+                <Image source={require("../assets/favicon.png")} style={css.header_img} />
             </View>
-            <View style={styles.footer}>
-                <Text style={[styles.texto, styles.textoWith]}>Digite seu nome para continuar</Text>
-                <TextInput placeholder="Nome" style={styles.input} />
-                <TouchableOpacity onPress={() => navigation.navigate("Main")}>
-                    <View style={styles.button}>
-                        <Text style={styles.button_text}>Continuar</Text>
-                    </View>
+            <View style={css.footer}>
+                <TouchableOpacity
+                    style={css.button}
+                    onPress={() => navigation.navigate("Cadastro")}
+                >
+                    <Text style={css.button_text}>Cadastro</Text>
                 </TouchableOpacity>
             </View>
         </View>
-    )
-}
+    );
+};
